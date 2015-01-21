@@ -1,0 +1,75 @@
+/*
+    A very simple tank model
+
+    Copyright (C) 2014  Enzhaev Ivan
+
+    Email: 8observer8@gmail.com
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+#ifndef MESHLOADER_H
+#define MESHLOADER_H
+
+#include <QString>
+#include <vector>
+#include <assimp/scene.h>
+
+class MeshLoader
+{
+public:
+    MeshLoader( const QString &fileName );
+    ~MeshLoader();
+
+    std::vector<float> planeVertices;
+    std::vector<float> gunTubeVertices;
+    std::vector<float> turretVertices;
+    std::vector<float> bodyVertices;
+    std::vector<float> trackRightFrontVertices;
+    std::vector<float> trackRightBackVertices;
+    std::vector<float> trackLeftFrontVertices;
+    std::vector<float> trackLeftBackVertices;
+    std::vector<float> trackLeftMiddleVertices;
+    std::vector<float> trackRightMiddleVertices;
+
+    std::vector<float> planeColors;
+    std::vector<float> gunTubeColors;
+    std::vector<float> turretColors;
+    std::vector<float> bodyColors;
+    std::vector<float> trackRightFrontColors;
+    std::vector<float> trackRightBackColors;
+    std::vector<float> trackLeftFrontColors;
+    std::vector<float> trackLeftBackColors;
+    std::vector<float> trackLeftMiddleColors;
+    std::vector<float> trackRightMiddleColors;
+
+    std::vector<float> planeNormals;
+    std::vector<float> gunTubeNormals;
+    std::vector<float> turretNormals;
+    std::vector<float> bodyNormals;
+    std::vector<float> trackRightFrontNormals;
+    std::vector<float> trackRightBackNormals;
+    std::vector<float> trackLeftFrontNormals;
+    std::vector<float> trackLeftBackNormals;
+    std::vector<float> trackLeftMiddleNormals;
+    std::vector<float> trackRightMiddleNormals;
+
+private:
+    void fillContainers( std::vector<float> &vertices,
+                         std::vector<float> &colors,
+                         std::vector<float> &normals,
+                         aiMesh *mesh, const aiScene *scene );
+};
+
+#endif // MESHLOADER_H
